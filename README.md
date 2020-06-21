@@ -12,7 +12,7 @@ Builds and pushes Docker images to GitHub Package Registry
       name: Check out code
 
     - name: Build and Publish Docker image
-      uses: zvfvrv/docker-gpr@1.0.0
+      uses: zvfvrv/docker-bpgpr@1.0.0
       with:
         gh_token: ${{ secrets.TOKEN_GH }}
         image_name: test
@@ -30,7 +30,7 @@ Builds and pushes Docker images to GitHub Package Registry
       name: Check out code
 
     - name: Build and Publish Docker image
-      uses: zvfvrv/docker-gpr@1.0.0
+      uses: zvfvrv/docker-bpgpr@1.0.0
       with:
         gh_token: ${{ secrets.TOKEN_GH }}
         image_name: test
@@ -47,7 +47,7 @@ Builds and pushes Docker images to GitHub Package Registry
       name: Check out code
 
     - name: Build and Publish Docker image
-      uses: zvfvrv/docker-gpr@1.0.0
+      uses: zvfvrv/docker-bpgpr@1.0.0
       with:
         gh_token: ${{ secrets.TOKEN_GH }}
         image_name: test

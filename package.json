@@ -1,5 +1,5 @@
 {
-  "name": "docker-gpr",
+  "name": "docker-bpgpr",
   "version": "1.0.0",
   "description": "Builds and pushes Docker images and will log in GitHub Package Registry",
   "main": "index.js",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zvfvrv/docker-gpr.git"
+    "url": "git+https://github.com/zvfvrv/docker-bpgpr.git"
   },
   "keywords": [
     "GitHub",
@@ -19,9 +19,9 @@
   "author": "Francesco Lombardo",
   "license": "Apache 2.0",
   "bugs": {
-    "url": "https://github.com/zvfvrv/docker-gpr/issues"
+    "url": "https://github.com/zvfvrv/docker-bpgpr/issues"
   },
-  "homepage": "https://github.com/zvfvrv/docker-gpr#readme",
+  "homepage": "https://github.com/zvfvrv/docker-bpgpr#readme",
   "dependencies": {
     "@actions/core": "^1.1.1",
     "@actions/exec": "^1.0.4"
