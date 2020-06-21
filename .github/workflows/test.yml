@@ -1,0 +1,31 @@
+name: "units-test"
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+
+jobs:
+  # unit tests
+  units:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - run: npm ci
+    - run: npm test
+
+  # test action works running from the graph  
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - uses: ./
+      with:
+        gh_token: ${{ secrets.TOKEN_GH }}
+        image_name: test
+        tag_with_ref: true
+        tag_with_sha: true
+        path: ./test
+        dockerfile: Dockerfile
+        target: withcurl
+        push: false

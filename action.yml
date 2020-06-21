@@ -1,0 +1,49 @@
+name: docker-bpgpr
+description: Builds and pushes Docker images to GitHub Package Registry
+author: zvfvrv
+branding:
+  icon: "package"
+  color: "gray-dark"
+inputs:
+  gh_token:
+    description: Password or personal access token used to log in to a Docker registry. If not set then no login will occur
+    required: true
+  image_name:
+    description: Image name
+    required: true
+  tags:
+    description: Comma-delimited list of tags. These will be added to the registry/repository to form the image's tags
+    required: false
+  tag_with_ref:
+    description: Automatically tags the built image with the git reference as per the readme
+    required: false
+    default: false
+  tag_with_sha:
+    description: Automatically tags the built image with the git short SHA as per the readme
+    required: false
+    default: false
+  path:
+    description: Path to the build context
+    required: false
+    default: "."
+  dockerfile:
+    description: Path to the Dockerfile (Default is '{path}/Dockerfile')
+    required: false
+    default: "Dockerfile"
+  target:
+    description: Sets the target stage to build
+    required: false
+  build_args:
+    description: Comma-delimited list of build-time variables
+    required: false
+  labels:
+    description: Comma-delimited list of labels to add to the built image
+    required: false
+  push:
+    description: Whether to push the image
+    required: false
+    default: true
+
+runs:
+  using: "node12"
+  main: "dist/index.js"

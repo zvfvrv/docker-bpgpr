@@ -1,0 +1,34 @@
+{
+  "name": "docker-gpr",
+  "version": "1.0.0",
+  "description": "Builds and pushes Docker images and will log in GitHub Package Registry",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint index.js",
+    "package": "ncc build index.js -o dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zvfvrv/docker-gpr.git"
+  },
+  "keywords": [
+    "GitHub",
+    "Actions",
+    "JavaScript"
+  ],
+  "author": "Francesco Lombardo",
+  "license": "Apache 2.0",
+  "bugs": {
+    "url": "https://github.com/zvfvrv/docker-gpr/issues"
+  },
+  "homepage": "https://github.com/zvfvrv/docker-gpr#readme",
+  "dependencies": {
+    "@actions/core": "^1.1.1",
+    "@actions/exec": "^1.0.4"
+  },
+  "devDependencies": {
+    "@zeit/ncc": "^0.20.5",
+    "eslint": "^6.3.0",
+    "jest": "^24.9.0"
+  }
+}
