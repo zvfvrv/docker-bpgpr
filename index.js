@@ -56,10 +56,9 @@ async function run() {
         }
         
         all_args.forEach(arg=>{
-           build_args_params +=  ` --build-arg ${arg}`
+           build_args_params +=  ` --build-arg ${arg}`;
         });
         
-
         let build_target_params = '';
         if (target && target.length > 0) {
             build_target_params = `--target ${target}`
@@ -71,7 +70,6 @@ async function run() {
         }
 
         const build_command = `docker build --file ${dockerfile_location} ${build_tags_params} ${build_target_params} ${build_label_params} ${build_args_params} ${path} `;
-
 
         await exec.exec(build_command);
 

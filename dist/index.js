@@ -969,7 +969,7 @@ async function run() {
     const path = core.getInput("path");
     const dockerfile = core.getInput("dockerfile");
     const target = core.getInput("target");
-    //const build_args = core.getInput("build_args");
+    const build_args = core.getInput("build_args");
     const labels = core.getInput("labels");
     const push = core.getInput("push") === 'true' ? true : false;
     const image_name = core.getInput("image_name").toLowerCase();
@@ -1006,7 +1006,18 @@ async function run() {
         all_tags.forEach(tag => {
             build_tags_params += ` -t ${image_full_name}:${tag}`
         });
-
+        
+        let build_args_params = '';
+        
+        let all_args=[];
+        if(build_args.length!=0){
+            all_args = build_args.split(','); 
+        }
+        
+        all_args.forEach(arg=>{
+           build_args_params +=  ` --build-arg ${arg}`;
+        });
+        
         let build_target_params = '';
         if (target && target.length > 0) {
             build_target_params = `--target ${target}`
@@ -1017,8 +1028,7 @@ async function run() {
             build_label_params = `--label ${labels}`
         }
 
-        const build_command = `docker build --file ${dockerfile_location} ${build_tags_params} ${build_target_params} ${build_label_params} ${path} `;
-
+        const build_command = `docker build --file ${dockerfile_location} ${build_tags_params} ${build_target_params} ${build_label_params} ${build_args_params} ${path} `;
 
         await exec.exec(build_command);
 
@@ -1037,6 +1047,7 @@ async function run() {
 
 
 run();
+
 
 /***/ }),
 
