@@ -39,7 +39,7 @@ Builds and pushes Docker images to GitHub Package Registry
         dockerfile: Dockerfile
 ```
 
-### Build and without publish Docker Image
+### Build without publish Docker Image
 
 ```yaml
     steps:
